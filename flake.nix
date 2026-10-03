@@ -18,7 +18,7 @@
 				espToolchain = esp-rs-nix.packages.${system}.esp-rs;
 				cargo-esp = pkgs.writeShellApplication {
 					name = "cargo-esp";
-					runtimeInputs = with pkgs; [ coreutils ];
+					runtimeInputs = with pkgs; [ coreutils ldproxy espflash ];
 					text = ''
 						if [ "$#" -gt 0 ] && [ "$1" = esp ]; then
 							# Cargo runs plugins as `cargo-esp esp <args>`.
